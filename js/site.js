@@ -1,14 +1,13 @@
 (() => {
+  // Highlight active nav
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.menu a').forEach(a => {
-    if (a.getAttribute('href') === path) {
-      a.style.color = '#fff';
-    }
+    const href = a.getAttribute('href');
+    if (href === path) a.style.background = 'rgba(255,255,255,.08)';
   });
 })();
-// Highlight Bedford Albion inside the homepage "Next Match" Full-Time embed (if not in an iframe)
-(() => {
- // Homepage: make the Full-Time embed behave like a true "Next Match" box
+
+// Homepage: turn the Full-Time feed into a true "Next Match" card
 (() => {
   const path = location.pathname.split('/').pop() || 'index.html';
   if (path !== 'index.html') return;
@@ -16,51 +15,51 @@
   const root = document.getElementById('next-match-widget');
   if (!root) return;
 
-  const SHOW_ROWS = 1; // change to 3 if you want "Next 3"
+  // Keep ONLY the next fixture block.
+  // Full-Time often renders each fixture as 2 consecutive rows (date row + match row).
+  const keepNextFixture = () => {
+    const rows = Array.from(root.querySelectorAll('tr'));
+    if (!rows.length) return false;
 
-  const styleAsNextMatch = () => {
-    // Prefer table rows if present
-    const tableRows = Array.from(root.querySelectorAll('tr'));
+    // Find rows that look like a "date/time header"
+    const isDateRow = (txt) => {
+      // Matches patterns like: "Sat 06 Sep 2025 14:30"
+      return /\b(mon|tue|wed|thu|fri|sat|sun)\b/i.test(txt) && /\b\d{1,2}:\d{2}\b/.test(txt);
+    };
 
-    if (tableRows.length) {
-      // Keep header row if it exists (sometimes first row is header-ish)
-      // We'll detect rows that actually contain teams by checking for "Bedford" or a score dash
-      const dataRows = tableRows.filter(r => {
-        const t = (r.innerText || '').trim();
-        return t.length > 0 && /bedford| v | - /i.test(t);
+    const dateRowIndexes = [];
+    rows.forEach((r, idx) => {
+      const t = (r.innerText || '').trim();
+      if (t && isDateRow(t)) dateRowIndexes.push(idx);
+    });
+
+    // If we can detect date rows, keep the first fixture block from first date row up to before the second date row
+    if (dateRowIndexes.length >= 1) {
+      const start = dateRowIndexes[0];
+      const end = dateRowIndexes.length >= 2 ? dateRowIndexes[1] : rows.length;
+
+      rows.forEach((r, idx) => {
+        const keep = idx >= start && idx < end;
+        r.style.display = keep ? '' : 'none';
+        r.classList.remove('albion-next');
       });
 
-      if (!dataRows.length) return false;
-
-      // Hide all data rows except the first SHOW_ROWS
-      dataRows.forEach((r, idx) => {
-        r.style.display = idx < SHOW_ROWS ? '' : 'none';
-        r.classList.remove('albion-row', 'dim-row');
-        if (idx === 0) r.classList.add('albion-row');
-      });
-
+      // Highlight the kept block
+      for (let i = start; i < end; i++) rows[i].classList.add('albion-next');
       return true;
     }
 
-    // Fallback: list items (some embeds render as <li>)
-    const lis = Array.from(root.querySelectorAll('li'));
-    if (lis.length) {
-      lis.forEach((li, idx) => {
-        li.style.display = idx < SHOW_ROWS ? '' : 'none';
-        li.classList.remove('albion-row', 'dim-row');
-        if (idx === 0) li.classList.add('albion-row');
-      });
-      return true;
-    }
-
-    return false;
+    // Fallback: if we can't detect date rows, just keep the first 2 rows
+    rows.forEach((r, idx) => {
+      const keep = idx < 2;
+      r.style.display = keep ? '' : 'none';
+      r.classList.toggle('albion-next', keep);
+    });
+    return true;
   };
 
-  // Try after load + a few retries (Full-Time loads async)
-  [200, 600, 1200, 2000, 3500].forEach(ms => setTimeout(styleAsNextMatch, ms));
-
-  // Observe for updates
-  const obs = new MutationObserver(() => styleAsNextMatch());
+  // Full-Time loads async: try a few times and observe changes
+  [200, 600, 1200, 2000, 3500].forEach(ms => setTimeout(keepNextFixture, ms));
+  const obs = new MutationObserver(() => keepNextFixture());
   obs.observe(root, { childList: true, subtree: true });
 })();
-
