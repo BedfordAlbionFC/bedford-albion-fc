@@ -196,3 +196,4 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
 }
 
 .link{color: var(--white); text-decoration:underline; text-underline-offset:3px}
+.t-text em { color: rgba(207,214,228,.85); font-style: italic; }
