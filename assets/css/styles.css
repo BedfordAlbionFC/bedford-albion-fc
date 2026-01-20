@@ -46,3 +46,13 @@ h1{margin:.4rem 0}
 #next-match-widget .dim-row {
   opacity: .78;
 }
+/* Make the Next Match embed feel like a single card */
+#next-match-widget .embed {
+  padding: 12px;
+}
+#next-match-widget table {
+  width: 100%;
+}
+#next-match-widget td, #next-match-widget th {
+  border-radius: 10px;
+}
