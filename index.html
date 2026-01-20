@@ -1,92 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bedford Albion FC</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-
-<header class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="index.html">
-      <img src="assets/img/badge.png" alt="Bedford Albion FC badge">
-      <span>Bedford Albion FC</span>
-    </a>
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="first-team.html">First Team</a>
-      <a href="development-team.html">Development</a>
-      <a href="news.html">News</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="container hero-card hero-grid">
-      <div>
-        <div class="kicker">Bedford • Football • Community</div>
-        <h1>Modern. Ambitious. Albion.</h1>
-        <p class="lead">
-          Official Bedford Albion FC website. Fixtures, results and league tables
-          update automatically via FA Full-Time.
-        </p>
-        <div class="cta-row">
-          <a class="btn primary" href="first-team.html">First Team</a>
-          <a class="btn" href="development-team.html">Development</a>
-        </div>
-      </div>
-      <div class="badge-wrap">
-        <img src="assets/img/badge.png" alt="Bedford Albion FC badge large">
-      </div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/img/badge.png" alt="Bedford Albion FC badge" />
+        <span>Bedford Albion FC</span>
+      </a>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="first-team.html">First Team</a>
+        <a href="development-team.html">Development</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section><section class="section">
-  <div class="container">
-    <div class="grid">
+  </header>
 
-      <div class="card full">
-        <h2>Next Match</h2>
-        <p class="small">
-          First Team – automatically updated from FA Full-Time
-        </p>
-
-        <div class="embed" id="next-match-widget">
-          <div id="lrep194638030" style="width:100%; max-width:520px;">
-            Data loading...
-            <a href="https://fulltime.thefa.com/index.html?divisionseason=917975219">
-              click here for Division One
-            </a>
-            <br><br>
-            <a href="https://www.thefa.com/FULL-TIME">FULL-TIME Home</a>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div>
+              <div class="kicker">Bedford • Football • Community</div>
+              <h1>Modern. Ambitious. Albion.</h1>
+              <p class="lead">
+                Official Bedford Albion FC website. Fixtures, results and league tables update automatically via FA Full-Time.
+              </p>
+              <div class="cta-row">
+                <a class="btn primary" href="first-team.html">First Team</a>
+                <a class="btn" href="development-team.html">Development</a>
+              </div>
+            </div>
+            <div class="badge-wrap">
+              <img src="assets/img/badge.png" alt="Bedford Albion FC badge large" />
+            </div>
           </div>
-
-          <script type="text/javascript">
-            var lrcode = '194638030';
-          </script>
-
-          <script
-            type="text/javascript"
-            src="https://fulltime.thefa.com/client/api/cs1.js">
-          </script>
         </div>
-
       </div>
+    </section>
 
+    <!-- NEXT MATCH -->
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card full">
+            <h2>Next Match</h2>
+            <p class="small">First Team – automatically updated from FA Full-Time</p>
+
+            <!-- Important: this wrapper id is used by site.js -->
+            <div class="embed" id="next-match-widget">
+              <div id="lrep194638030" style="width:100%; max-width:900px;">
+                Data loading...
+                <a href="https://fulltime.thefa.com/index.html?divisionseason=917975219">click here for Division One</a>
+                <br/><br/>
+                <a href="https://www.thefa.com/FULL-TIME">FULL-TIME Home</a>
+              </div>
+
+              <script type="text/javascript">
+                var lrcode = '194638030';
+              </script>
+              <script type="text/javascript" src="https://fulltime.thefa.com/client/api/cs1.js"></script>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>Bedford Albion FC</strong> • Fixtures/Results/Tables powered by FA Full-Time
     </div>
-  </div>
-</section>
+  </footer>
 
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <strong>Bedford Albion FC</strong> • Powered by FA Full-Time
-  </div>
-</footer>
-
-<script src="js/site.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>
