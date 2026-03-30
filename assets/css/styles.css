@@ -417,3 +417,22 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
   transition:.15s;
   background: rgba(255,255,255,.08);
 }
+/* Instagram section */
+.ig-grid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+
+@media (max-width: 900px){
+  .ig-grid{ grid-template-columns: 1fr; }
+}
+
+.ig-grid .instagram-media{
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
