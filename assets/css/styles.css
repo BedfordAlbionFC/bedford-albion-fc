@@ -493,3 +493,16 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
   color: var(--orange);
   font-size:13px;
 }
+/* Albion Advantage upgrades */
+.adv-code{
+  margin-top:6px;
+  font-weight:700;
+  font-size:13px;
+  color: var(--white);
+}
+
+.adv-expiry{
+  margin-top:2px;
+  font-size:12px;
+  color: rgba(207,214,228,.8);
+}
