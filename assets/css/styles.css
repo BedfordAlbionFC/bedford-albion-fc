@@ -510,3 +510,69 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
   text-decoration: none;
   color: inherit;
 }
+/* Albion Advantage final polish */
+.adv-card{
+  display:flex;
+  gap:14px;
+  padding:16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  align-items:flex-start;
+  transition: .15s;
+}
+
+.adv-card:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.05);
+}
+
+.adv-logo{
+  flex-shrink:0;
+  width:70px;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.06);
+  border-radius:12px;
+  padding:8px;
+}
+
+.adv-logo img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+.adv-body h3{
+  margin:0 0 4px;
+  font-size:16px;
+  font-weight:900;
+}
+
+.adv-body p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.adv-offer{
+  margin-top:6px;
+  font-weight:900;
+  color: var(--orange);
+  font-size:13px;
+}
+
+.adv-code{
+  margin-top:4px;
+  font-weight:700;
+  font-size:13px;
+  color: var(--white);
+}
+
+.adv-expiry{
+  margin-top:2px;
+  font-size:12px;
+  color: rgba(207,214,228,.8);
+}
