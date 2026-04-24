@@ -436,172 +436,32 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
   border-radius: 16px !important;
   overflow: hidden;
 }
-/* Albion Advantage */
-.adv-grid{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:14px;
-}
-
-@media (max-width: 800px){
-  .adv-grid{ grid-template-columns: 1fr; }
-}
-
-.adv-card{
-  display:flex;
-  gap:14px;
-  padding:14px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.14);
-  align-items:flex-start;
-}
-
-.adv-logo{
-  flex-shrink:0;
-  width:70px;
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(255,255,255,.06);
-  border-radius:12px;
-  padding:8px;
-}
-
-.adv-logo img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-}
-
-.adv-body h3{
-  margin:0 0 4px;
-  font-size:16px;
-}
-
-.adv-body p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-.adv-offer{
-  margin-top:6px;
-  font-weight:900;
-  color: var(--orange);
-  font-size:13px;
-}
-/* Albion Advantage upgrades */
-.adv-code{
-  margin-top:6px;
-  font-weight:700;
-  font-size:13px;
-  color: var(--white);
-}
-
-.adv-expiry{
-  margin-top:2px;
-  font-size:12px;
-  color: rgba(207,214,228,.8);
-}
-.adv-card{
-  text-decoration: none;
-  color: inherit;
-}
-/* Albion Advantage final polish */
-.adv-card{
-  display:flex;
-  gap:14px;
-  padding:16px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.18);
-  align-items:flex-start;
-  transition: .15s;
-}
-
-.adv-card:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.05);
-}
-
-.adv-logo{
-  flex-shrink:0;
-  width:70px;
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(255,255,255,.06);
-  border-radius:12px;
-  padding:8px;
-}
-
-.adv-logo img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-}
-
-.adv-body h3{
-  margin:0 0 4px;
-  font-size:16px;
-  font-weight:900;
-}
-
-.adv-body p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-.adv-offer{
-  margin-top:6px;
-  font-weight:900;
-  color: var(--orange);
-  font-size:13px;
-}
-
-.adv-code{
-  margin-top:4px;
-  font-weight:700;
-  font-size:13px;
-  color: var(--white);
-}
-
-.adv-expiry{
-  margin-top:2px;
-  font-size:12px;
-  color: rgba(207,214,228,.8);
-}
-/* Albion Advantage clean layout */
-.advantage-panel{
+/* ===== Albion Advantage - clean reset ===== */
+.aa-panel{
   overflow:hidden;
 }
 
-.adv-list{
+.aa-list{
   margin-top:18px;
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:1fr;
   gap:16px;
 }
 
-.adv-card-clean{
+.aa-card{
   display:grid;
-  grid-template-columns: 150px 1fr 240px;
+  grid-template-columns:140px 1fr 220px;
   gap:22px;
   align-items:center;
   padding:18px;
   border-radius:18px;
   border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.16);
+  background:rgba(0,0,0,.18);
 }
 
-.adv-logo-clean{
-  width:130px;
-  height:130px;
+.aa-logo{
+  width:120px;
+  height:120px;
   border-radius:16px;
   background:rgba(255,255,255,.06);
   display:flex;
@@ -610,30 +470,44 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
   padding:12px;
 }
 
-.adv-logo-clean img{
+.aa-logo img{
   max-width:100%;
   max-height:100%;
   object-fit:contain;
+  display:block;
 }
 
-.adv-info h3{
+.aa-info h3{
   margin:0 0 8px;
   font-size:24px;
   line-height:1.1;
 }
 
-.adv-info p{
+.aa-info p{
   margin:10px 0 0;
   color:var(--muted);
   line-height:1.55;
 }
 
-.adv-offer-box{
+.aa-badge{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(212,106,29,.35);
+  background:rgba(212,106,29,.14);
+  color:var(--white);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.aa-offer{
   border-left:1px solid rgba(255,255,255,.16);
   padding-left:22px;
 }
 
-.adv-offer-box span{
+.aa-offer span{
   display:block;
   text-transform:uppercase;
   letter-spacing:.12em;
@@ -643,37 +517,37 @@ h1{margin:.35rem 0 .6rem; font-size:40px; line-height:1.06}
   margin-bottom:8px;
 }
 
-.adv-offer-box strong{
+.aa-offer strong{
   display:block;
   color:var(--orange);
   font-size:20px;
   line-height:1.25;
 }
 
-.adv-note{
+.aa-note{
   margin-top:16px;
 }
 
 /* Mobile */
-@media (max-width: 850px){
-  .adv-card-clean{
+@media (max-width:850px){
+  .aa-card{
     grid-template-columns:1fr;
     gap:14px;
   }
 
-  .adv-logo-clean{
-    width:120px;
-    height:120px;
+  .aa-logo{
+    width:110px;
+    height:110px;
   }
 
-  .adv-offer-box{
+  .aa-info h3{
+    font-size:22px;
+  }
+
+  .aa-offer{
     border-left:0;
     border-top:1px solid rgba(255,255,255,.16);
     padding-left:0;
     padding-top:14px;
-  }
-
-  .adv-info h3{
-    font-size:22px;
   }
 }
